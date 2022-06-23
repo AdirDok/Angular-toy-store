@@ -1,0 +1,129 @@
+<div class="cart-details">
+
+    <div class="details-heder">
+
+        <input (keyup)="changeInpValue($event)"
+        [(ngModel)]="_mainData.sherchInCartInpValue"
+        class=" form-control"
+        type="text" placeholder="sherch in cart">
+
+    </div>
+
+    <div class="details-div">
+
+        <div class="item-d" *ngFor=" let item  of _mainData.cartItems  ">
+            <h4 [innerHTML]="item.product_Name |markCode:_mainData.sherchInCartInpValue "></h4>
+            <h3 class="price"> Price per unit: {{item.price}} </h3>
+            <h3 class="Quantity"> Quantity: x{{item.Quantity}}</h3>
+            <h4 class="total">Total price is : {{item.total_price.toFixed(2) | currency: 'ILS'}}</h4>
+
+        </div>
+
+    </div>
+
+    <div class="details-footer">
+        <h5> Total Cart price {{_mainData.userCartInfo?.total_price}}</h5>
+        <a routerLink="/main">
+            <button mat-flat-button color="accent">Back to store
+            </button>
+        </a>
+    </div>
+
+
+</div>
+
+
+<div class="shipping-form">
+
+    <div *ngIf="_mainData.order_FormErrs" class="input-errors">
+        <h4>{{_mainData.order_FormErrs}}</h4>
+    </div>
+
+    <form class="form" (ngSubmit)="_mainData.sendOrderToStore(orderForm.value)" #orderForm="ngForm">
+        <div class="form-group">
+
+            <div>
+                <label>City</label>
+                <input (dblclick)="setInpsValus()" type="text" class="form-control" ngModel #City_For_Delivery="ngModel"
+                    [(ngModel)]="city" name="City_For_Delivery" placeholder="Please enter a city for delivery" required
+                    [class.is-invalid]="City_For_Delivery.invalid && City_For_Delivery.touched">
+            </div>
+
+            <div class="input-errors">
+                <h4 *ngIf="City_For_Delivery.invalid && City_For_Delivery.touched">Please enter a city for delivery</h4>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <div>
+
+                <label>Street</label>
+                <input (dblclick)="setInpsValus()" type="text" class="form-control" ngModel
+                    #Street_For_Delivery="ngModel" [(ngModel)]="street" name="Street_For_Delivery"
+                    placeholder="Please enter a street for delivery" required
+                    [class.is-invalid]="Street_For_Delivery.invalid && Street_For_Delivery.touched">
+
+                <div class="input-errors">
+                    <h4 *ngIf="Street_For_Delivery.invalid && Street_For_Delivery.touched">Please enter a street for
+                        delivery</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+
+                <label>Credit Card</label>
+                <input type="number" class="form-control" ngModel #Credit="ngModel" name="Credit"
+                    placeholder="Only 16 digits" required pattern="\d{16}"
+                    [class.is-invalid]="Credit.invalid && Credit.touched">
+
+
+                <div class="input-errors">
+                    <h4 *ngIf="Credit.errors?.['pattern'] && Credit.touched">A Credit number should contain Only 16
+                        digits</h4>
+                    <h4 *ngIf="Credit.invalid && Credit.touched">Please enter Credit card</h4>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div>
+            <input type="date" ngModel #Date_For_Delivery="ngModel" name="Date_For_Delivery"
+                placeholder=" select delivery date" required [min]="today">
+
+            <div class="input-errors">
+                <h4 *ngIf="Date_For_Delivery.invalid && Date_For_Delivery.touched">Please select a delivery date</h4>
+            </div>
+        </div>
+
+        <div>
+            <mat-form-field color="accent" appearance="fill">
+                <mat-label>nots for delivery</mat-label>
+                <textarea #nots ngModel name="nots" matInput></textarea>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button [disabled]="orderForm.invalid" color="primary">Pay</button>
+
+    </form>
+
+</div>
+
+
+<div *ngIf="_mainData.popup" class="to-downlode">
+    <div class="main-contrnt">
+
+        <a [href]="href+_mainData.fileName">
+            <button mat-raised-button> click here To download receipt </button>
+        </a>
+
+        <button (click)="backToMainPage()" color="primary" mat-raised-button> Back to main page </button>
+        <!-- <button (click)="_mainData.openOrClosePopup()">no no no </button> -->
+    </div>
+</div>

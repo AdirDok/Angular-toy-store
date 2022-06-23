@@ -1,0 +1,159 @@
+<div class="edit-content">
+
+    <button class="add-p-b" (click)="_mainData.openOrClosePopup()" color="primary" mat-raised-button> To Add Product
+        Click Here </button>
+
+    <div class="input-errors">
+        <h4 *ngIf="_mainData.uppdateProductInfo_Errors">{{_mainData.uppdateProductInfo_Errors}} </h4>
+    </div>
+
+    <form  #editProductForm="ngForm">
+
+        <mat-form-field appearance="outline">
+            <mat-label>product name</mat-label>
+            <input  [disabled]="_mainData.disabelInps" ngModel matInput #product_Name="ngModel" required
+                [(ngModel)]="_mainData.SpecificProduct.product_Name" name="product_Name">
+        </mat-form-field>
+
+        <div class="input-errors">
+            <h4 *ngIf="product_Name.invalid&& product_Name.touched">product Name is required </h4>
+        </div>
+
+
+        <mat-form-field  appearance="outline">
+            <mat-label>product Price</mat-label>
+            <input [disabled]="_mainData.disabelInps" ngModel matInput [(ngModel)]="_mainData.SpecificProduct.price" required #price="ngModel"
+                name="price">
+        </mat-form-field>
+
+        <div class="input-errors">
+            <h4 *ngIf="price.invalid&& price.touched">price is required </h4>
+        </div>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>product Image</mat-label>
+            <input [disabled]="_mainData.disabelInps" ngModel matInput [(ngModel)]="_mainData.SpecificProduct.Image" #Image="ngModel" name="Image">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>category</mat-label>
+            <mat-select [disabled]="_mainData.disabelInps" ngModel [(ngModel)]="_mainData.SpecificProduct.category" #product_category="ngModel"
+                name="product_category" required>
+
+                <mat-option disabled> select a category </mat-option>
+                <mat-option *ngFor=" let category of _mainData.categoriesArr" [value]="category.id">
+                    {{category.category}} </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <div class="input-errors">
+            <h4 *ngIf="product_category.invalid&& product_category.touched">Please select a product category </h4>
+        </div>
+
+
+        <button (click)="_mainData.uppdateProductInfo(_mainData.SpecificProduct)" [disabled]="editProductForm.invalid"
+            color="primary" mat-raised-button> Update product </button>
+
+    </form>
+
+    <!-- ===================================----------------------------------------------- -->
+
+
+
+</div>
+
+
+
+<div class="main-items-d">
+
+
+    <mat-toolbar color="primary" class="categoris-nav">
+        <h6 (click)="_mainData.getAllProducts()" class="cat">All Products</h6>
+
+        <h6 (click)="_mainData.AllProductsPer_Category($event.target['innerText'])" class="cat"
+            *ngFor="let category of _mainData.categoriesArr"> {{category.category}} </h6>
+
+    </mat-toolbar>
+
+    <div class="items">
+        <app-item *ngFor="let product of _mainData.productsArr" [product]="product"></app-item>
+    </div>
+
+
+
+</div>
+
+
+
+<div *ngIf="_mainData.popup" class="popup-add-product">
+    <div class="main-contrnt">
+
+        <div class="input-errors">
+            <h4 *ngIf="_mainData.addNewProduct_Errors">{{_mainData.addNewProduct_Errors}} </h4>
+        </div>
+        <!-- <h1>{{addProductForm.value|json}}</h1> -->
+
+        <form #addProductForm="ngForm">
+
+            <mat-form-field appearance="outline">
+                <mat-label>product name</mat-label>
+                <input ngModel matInput #product_Name="ngModel" required
+                    [(ngModel)]="_mainData.SpecificProduct.product_Name" name="product_Name">
+            </mat-form-field>
+
+            <div class="input-errors">
+                <h4 *ngIf="product_Name.invalid&& product_Name.touched">product Name is required </h4>
+            </div>
+            <!-- ============================================================================ -->
+
+            <mat-form-field appearance="outline">
+                <mat-label>product Price</mat-label>
+                <input ngModel matInput [(ngModel)]="_mainData.SpecificProduct.price" required #price="ngModel"
+                    name="price">
+            </mat-form-field>
+
+            <div class="input-errors">
+                <h4 *ngIf="price.invalid&& price.touched">price is required </h4>
+            </div>
+            <!-- ================================================================= -->
+            <div class="qq">
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>product Image</mat-label>
+                    <input ngModel matInput [(ngModel)]="_mainData.SpecificProduct.Image" #Image="ngModel" name="Image">
+                </mat-form-field>
+                <!-- ================================================================================= -->
+
+                <mat-form-field appearance="fill">
+                    <mat-label>category</mat-label>
+                    <mat-select ngModel [(ngModel)]="_mainData.SpecificProduct.category" #product_category="ngModel"
+                        name="product_category" required>
+
+                        <mat-option disabled> select a category </mat-option>
+                        <mat-option *ngFor=" let category of _mainData.categoriesArr" [value]="category.id">
+                            {{category.category}} </mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="input-errors">
+                    <h4 *ngIf="product_category.invalid&& product_category.touched">Please select a product category
+                    </h4>
+                </div>
+            </div>
+        </form>
+        <div class="btns">
+            <button mat-raised-button (click)="_mainData.openOrClosePopup()"> cansel </button>
+            <button [disabled]="addProductForm.invalid" mat-raised-button color="primary" (click)="_mainData.addNewProduct(addProductForm.value)"> Add
+                Product
+            </button>
+
+        </div>
+    </div>
+
+
+
+</div>

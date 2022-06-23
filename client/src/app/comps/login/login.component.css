@@ -1,0 +1,69 @@
+h2 {
+    color: rebeccapurple;
+}
+
+.Registration-msg{
+    margin-top: 10px;
+    color: red;
+    font-size: large;
+    font-weight: 500;
+}
+
+.login-panels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 85vh;
+
+    grid-template-areas:
+        'A'
+        'B'
+        'C'
+}
+
+.login {
+    grid-area: 'A';
+
+}
+
+.form {
+    /* background-color: aquamarine; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.discprision {
+    grid-area: 'B';
+    position: relative;    
+}
+
+.opening-speech{
+    
+    top: 10px;
+    overflow: auto;
+    font-weight: bold
+     
+}
+
+.kangaroo-img{
+    height: 80%;
+    width: 100%;
+      
+}
+
+.user-details {
+    grid-area: 'C';
+}
+
+.panel {
+    /* border: 2px solid black; */
+    margin: 5px 5px;
+}
+
+
+
+
+

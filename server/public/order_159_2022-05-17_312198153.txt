@@ -1,0 +1,58 @@
+-------ORDER number 159-------
+         
+ My first artboard ,price:159.9 * 1
+            total: 159.90 
+
+            ===================== 
+ Musical Walker ,price:199.9 * 1
+            total: 199.90 
+
+            ===================== 
+ My first bowling ,price:59.9 * 1
+            total: 59.90 
+
+            ===================== 
+ soft cubes ,price:129.9 * 1
+            total: 129.90 
+
+            ===================== 
+ 16-Inch Children's Bike -Bastket, Adjustable ,price:399.9 * 1
+            total: 399.90 
+
+            ===================== 
+ 20-Inch Children's Bike ,price:399.9 * 1
+            total: 399.90 
+
+            ===================== 
+ Gener8 Deluxe Tricycle ,price:249.9 * 1
+            total: 249.90 
+
+            ===================== 
+ boys skates with lights ,price:349.9 * 1
+            total: 349.90 
+
+            ===================== 
+ Void Stunt Scooter ,price:299.9 * 1
+            total: 299.90 
+
+            ===================== 
+ Pulse Performance Products Stunt Scooter ,price:299.9 * 1
+            total: 299.90 
+
+            ===================== 
+ Lil' Rider Kids Scooter ,price:149.9 * 1
+            total: 149.90 
+
+            ===================== 
+ Huffy  Spider-Man(R) Electro-Light Inline Scooter ,price:129.9 * 1
+            total: 129.90 
+
+            ===================== 
+ 3-wheel scooter ,price:349.9 * 1
+            total: 349.90 
+
+            ===================== 
+ Scooter 3 wheels super jets ,price:99.9 * 1
+            total: 99.90 
+
+            =====================total patmant is : 3278.60 

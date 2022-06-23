@@ -1,0 +1,48 @@
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.input-errors{
+    color: rgb(252, 35, 35);
+}
+
+.heder-btn{
+    background-color: aliceblue;
+}
+
+.main-screen{
+    height: 88%;
+}
+   
+
+app-order{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+app-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.marker{
+    background-color: yellow;
+}
+

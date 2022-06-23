@@ -1,0 +1,10 @@
+-------ORDER number 161-------
+         
+ My first artboard ,price:159.9 * 1
+            total: 159.90 
+
+            ===================== 
+ Musical Walker ,price:199.9 * 1
+            total: 199.90 
+
+            =====================total patmant is : 359.80 

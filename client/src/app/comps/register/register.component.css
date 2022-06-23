@@ -1,0 +1,22 @@
+.go-tologin {
+    margin-top: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+
+.r-ntbs {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+    padding: 10px;
+
+}
+
+.next-btn{
+    margin-top: 10px;
+}

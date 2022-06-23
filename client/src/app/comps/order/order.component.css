@@ -1,0 +1,106 @@
+.cart-details {
+    /* background-color: aqua; */
+    height: 88vh;
+    width: 30%;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+.details-heder {
+    text-align: center;
+    height: 10%;
+    margin: 10px 0;
+    position: sticky;
+    top: 0;
+
+}
+
+.details-footer {
+    text-align: center;
+    position: fixed;
+    background-color: whitesmoke;
+    bottom: 0;
+    height: 10%;
+    width: 28.56vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+
+.item-d {
+    border: 2px solid;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================= */
+
+.shipping-form {
+    /* background-color: aqua; */
+    background-color: whitesmoke;
+    height: 88vh;
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.form {
+    /* border: 2px solid; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+
+
+.to-downlode {
+    /*  זה הדיב שמכסה את הכל  */
+
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: popup-fadein 500ms ;
+
+}
+
+.main-contrnt {
+    /*  תוכן מרכזי  */
+    background-color: whitesmoke;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 10px;
+    transition: fade-in-out;
+    text-align: center;
+}
+
+
+@keyframes popup-fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+
+}

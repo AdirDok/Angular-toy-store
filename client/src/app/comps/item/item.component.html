@@ -1,0 +1,50 @@
+<mat-card class="p-card">
+
+    <div class="img">
+        <img class="imgs" at-card-xl-image [src]="product.Image" alt="toys">
+    </div>
+
+
+    <div class="product-details">
+        <h2>{{product.product_Name}}</h2>
+        <h4>{{product.price |currency: 'ILS'}}</h4>
+    </div>
+
+    <div *ngIf="_data.myUser.Admin==false">
+
+        <div class="product-actions">
+            <div>
+
+                <button (click)="changeInpValue($event)" value="less" [disabled]="inpValue==1" type="button"
+                    class="btn btn-outline-primary">-</button>
+
+                <input (change)="changeInpValueKeyUp($event)" class="productInp form-control" #productInp type="number"
+                    [(ngModel)]="inpValue">
+
+                <button (click)="changeInpValue($event)" value="more" type="button"
+                    class="btn btn-outline-primary">+</button>
+
+
+            </div>
+
+            <button (click)="addToCart()" mat-raised-button color="primary">add to cart</button>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div *ngIf="_data.myUser.Admin==true" class="adminActions">
+
+        <button (click)="getThisProductDitails()" mat-raised-button color="primary">Edit product</button>
+        <button (click)="_mainData.deleteProductFromServerAdmin(product.id)" mat-raised-button color="warn">Delete
+            product</button>
+    </div>
+
+
+
+</mat-card>
+

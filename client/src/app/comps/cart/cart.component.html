@@ -1,0 +1,56 @@
+<header class="cart-heder">
+    <button (click)="_mainData.emptyCart()" color="warn" mat-raised-button>
+        Click to empty the cart
+        <mat-icon>
+            <span class="material-symbols-outlined">
+                remove_shopping_cart
+            </span>
+        </mat-icon>
+    </button>
+</header>
+
+
+
+
+<div class="items">
+
+    <mat-card *ngFor="let item of _mainData.cartItems" class="cart-item">
+        <button (click)="_mainData.deleteItemFromCart(item.product_id)" color="primary" mat-icon-button>
+            <mat-icon>
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </mat-icon>
+        </button>
+
+        <div>
+            <h4>{{item.product_Name}}</h4>
+            <h3 class="price"> Price per unit: {{item.price}} </h3>
+            <!-- <input (change)="asd($event)" [value]="item.Quantity" type="number"> -->
+            <h3 class="Quantity"> Quantity: x{{item.Quantity}}</h3>
+            <h4 class="total">Total price is : {{item.total_price.toFixed(2) | currency: 'ILS'}}</h4>
+        </div>
+
+    </mat-card>
+
+</div>
+
+<footer class="cart-footer">
+
+    <div class="a">
+        <h4> Total Cart price <p class="total-price"> {{_mainData.userCartInfo?.total_price}}</p>
+        </h4>
+
+    </div>
+
+    <div class="link-to-order">
+
+        <a routerLink="/order">
+
+            <button mat-flat-button color="accent">Buy Now</button>
+        </a>
+
+    </div>
+
+
+</footer>

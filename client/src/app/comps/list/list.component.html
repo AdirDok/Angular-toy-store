@@ -1,0 +1,13 @@
+<mat-toolbar   class="categoris-nav">
+    <h1 (click)="_mainData.getAllProducts()" class="cat">All Products</h1>
+
+    <h2 (click)="_mainData.AllProductsPer_Category($event.target['innerText'])" class="cat"
+        *ngFor="let category of _mainData.categoriesArr"> {{category.category}} </h2>
+
+</mat-toolbar>
+
+
+<div class="products-list">
+
+    <app-item *ngFor="let product of _mainData.productsArr" [product]="product"></app-item>
+</div>

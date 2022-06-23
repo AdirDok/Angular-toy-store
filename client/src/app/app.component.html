@@ -1,0 +1,34 @@
+<mat-toolbar class="heder-items" color="primary">
+
+    <a class="toys-heder" routerLink="/login">
+        <h2>Toys Are Toys </h2>
+    </a>
+
+    <div class="heder-sherch-bar" *ngIf="_data.imInMain">
+
+        <button *ngIf="_data.myUser.Admin==false" color="accent" mat-mini-fab (click)="_mainData.toggleCart()">
+            <mat-icon matBadgePosition="above after" matBadgeSize="small" matBadgeColor="warn"
+                [matBadge]="_mainData.cartItems.length">
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                </span>
+            </mat-icon>
+        </button>
+
+
+        <div class="main-sherch-bar">
+            <input #searchInp class="search-inp" placeholder="Search" type="text">
+            <button (click)="_mainData.Main_Search(searchInp.value)" mat-stroked-button color="primary"
+                class="heder-btn">sherch</button>
+        </div>
+    </div>
+
+
+    <button (click)="_data.logout()" class="heder-btn" *ngIf="_data.myUser" mat-stroked-button
+        color="primary">logout</button>
+
+
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>

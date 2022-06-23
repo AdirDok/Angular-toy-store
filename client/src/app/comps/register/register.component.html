@@ -1,0 +1,172 @@
+<div class="container-fluid">
+    <h1>registrar</h1>
+
+    <h4 class="input-errors" *ngIf="_data.R_registerErrors">{{_data.R_registerErrors}} !</h4>
+
+    <form (submit)="_data.R_register(RegistrationForm.value)" [formGroup]="RegistrationForm">
+
+        <!-- <h2>{{RegistrationForm.value|json}}</h2> -->
+
+        <div *ngIf="step==1" class="firsStep">
+
+
+            <div class="form-group">
+
+                <div>
+                    <label>ID</label>
+                    <input (blur)="isIdAlredyInUse(ID_Fc.value)" [class.is-invalid]="ID_Fc.invalid && ID_Fc.touched"
+                        formControlName="ID" type='number' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="ID_Fc.invalid&& ID_Fc.touched">ID is required </h4>
+
+                    <div class="go-tologin" *ngIf="IDAlredyInUse">
+                        <h4> This ID already exists in the system</h4>
+                        <button color="primary" mat-raised-button (click)="rediract()">to Login</button>
+                        <!-- לעשות פה רידיירקט -->
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <div>
+                    <label>Email</label>
+                    <input [class.is-invalid]="Email_Fc.invalid && Email_Fc.touched" formControlName="Email"
+                        type='email' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="Email_Fc.errors?.['email'] && Email_Fc.touched ">Email is invalid </h4>
+                    <h4 *ngIf="Email_Fc.invalid&& Email_Fc.touched && !Email_Fc.errors?.['email'] ">Email is
+                        required
+                    </h4>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <div>
+                    <label>password</label>
+                    <input [class.is-invalid]="password_Fc.invalid && password_Fc.touched" formControlName="password"
+                        type='password' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="password_Fc.invalid&& password_Fc.touched">password is required </h4>
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <div>
+                    <label> confirm Password </label>
+                    <input [class.is-invalid]="confirmPassword_Fc.invalid && confirmPassword_Fc.touched"
+                        [class.is-invalid]="RegistrationForm.errors?.['noMatch']" formControlName="confirmPassword"
+                        type='password' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="confirmPassword_Fc.invalid&& confirmPassword_Fc.touched">Please verify your password
+                    </h4>
+
+                    <h4 *ngIf="RegistrationForm.errors?.['noMatch']"> Password and confirm-Password does not match
+                    </h4>
+                </div>
+
+            </div>
+
+            <button class="next-btn" [disabled]="IDAlredyInUse" color="accent" mat-raised-button
+                (click)="IsFirstStepValid(RegistrationForm.value,$event)">Next</button>
+
+        </div>
+
+        <!-- =================================================================================== -->
+
+        <div *ngIf="step==2" class="secondStep">
+
+            <div class="form-group">
+
+                <div>
+                    <label>First Name</label>
+                    <input [class.is-invalid]="F_name_Fc.invalid && F_name_Fc.touched" formControlName="F_name"
+                        type='text' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="F_name_Fc.invalid&& F_name_Fc.touched">First name is required </h4>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <div>
+                    <label>Last Name</label>
+                    <input [class.is-invalid]="L_name_Fc.invalid && L_name_Fc.touched" formControlName="L_name"
+                        type='text' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="L_name_Fc.invalid&& L_name_Fc.touched">Last Name is required </h4>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <mat-form-field appearance="fill">
+                    <mat-label> City </mat-label>
+
+                    <mat-select formControlName="city" [class.is-invalid]="city_Fc.invalid && city_Fc.touched">
+                        <mat-option disabled> select a city </mat-option>
+                        <mat-option *ngFor=" let city of citysArr" [value]="city"> {{city}} </mat-option>
+
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="input-errors">
+                    <h4 *ngIf="city_Fc.invalid&& city_Fc.touched">city Name is required </h4>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <div>
+                    <label>street</label>
+                    <input [class.is-invalid]="street_Fc.invalid && street_Fc.touched" formControlName="street"
+                        type='text' class="form-control">
+                </div>
+
+                <div class="input-errors">
+                    <h4 *ngIf="street_Fc.invalid&& street_Fc.touched">street is required </h4>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="r-ntbs">
+                <button color="accent" mat-raised-button (click)="goBack($event)">back</button>
+                <button color="primary" [disabled]="RegistrationForm.invalid" mat-raised-button>Register</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>

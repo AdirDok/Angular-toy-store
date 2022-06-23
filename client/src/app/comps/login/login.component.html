@@ -1,0 +1,132 @@
+<div class="login-panels-grid">
+
+
+    <div class="login panel">
+
+        <h1 class="Registration-msg" *ngIf="_data.R_justregistert">Registration completed successfully Please login to
+            continue</h1>
+
+        <form class="form" *ngIf="!_data.myUser" (submit)="login(loginForm.value)" #loginForm="ngForm">
+
+            <div class="form-group">
+
+                <input type="text" class="form-control" [(ngModel)]="myData.ID" #ID="ngModel" ngModel name="ID"
+                    placeholder="Enter ID" required [class.is-invalid]="ID.invalid&& ID.touched" pattern="\d{9}">
+
+
+                <div class="input-errors">
+                    <h4 *ngIf="ID.invalid&& ID.touched">ID is required </h4>
+                    <h4 *ngIf="ID.errors?.['pattern'] && ID.touched">An ID number should contain 9 digits</h4>
+                </div>
+
+
+            </div>
+
+            <div class="form-group">
+
+                <input type="password" class="form-control" [(ngModel)]="myData.password" #password="ngModel" ngModel
+                    name="password" placeholder="password" required
+                    [class.is-invalid]="password.invalid && password.touched">
+
+
+                <div class="input-errors">
+                    <h4 *ngIf="password.invalid && password.touched">Password is required </h4>
+                </div>
+
+            </div>
+
+
+            <a routerLink="/register">Do not have an account ? Sign up here</a>
+
+            <button [disabled]="!loginForm.valid" mat-raised-button>login</button>
+            <!-- ================================================================================= -->
+
+            <h3 class="input-errors" *ngIf="_data.loginErrors">{{_data.loginErrors}} !</h3>
+            <!-- =============================================================== -->
+        </form>
+
+        <!-- ================================THIS IS USET DIV   ===================== -->
+        <div *ngIf="_data.myUser?.Admin==false" class="form panel after-login ">
+
+            <h2> Hello {{_data.myUser?.F_name}} welcome.
+                Click to continue shopping, Have a wonderful day </h2>
+            <button (click)="_data.redirectToMain()" color="primary" [textContent]="btnValue" mat-raised-button>
+            </button>
+
+        </div>
+
+        <!-- ==============================THIS IS ADMIn DIV =========================== -->
+        <div *ngIf="_data.myUser?.Admin==true" class="form panel after-login ">
+
+            <h2> Hello {{_data.myUser?.F_name}}, welcome my royal Admin </h2>
+
+            <button (click)="_data.redirectToMain()" color="primary" [textContent]="btnValue" mat-raised-button>
+            </button>
+
+        </div>
+
+
+        <!-- השורה הבאה היא סוף פאנל A הפאנל של הלוגאין -->
+    </div>
+
+
+    <div class="discprision panel">
+
+        <h5 class="opening-speech">
+            We in Toys Are Toys, invest a lot of time, resources and efforts in order to meet all our customers'
+            expectations.
+            We will be happy to serve you in any of the chain stores.
+        </h5>
+
+        <img class="kangaroo-img"
+            src="https://cashcow-cdn.azureedge.net/media-gallery/OxZF1TF6aMI=/NewFolder/unnamed.png"
+            alt="A serious kangaroo">
+
+
+        <!-- https://cashcow-cdn.azureedge.net/media-gallery/OxZF1TF6aMI=/NewFolder/unnamed.png -->
+        <!-- הזכויות שמורות לעידן 2000 -->
+
+    </div>
+
+
+
+    <div class="details panel">
+
+        <div>
+            <h3>So far I have had {{generalInfo['totalOrdes'] }} orders on the site </h3>
+            <h3>Here you can buy some {{generalInfo['totalPruducts']}} From the best products</h3>
+
+        </div>
+
+
+
+        <div class="user-details">
+
+
+
+            <div *ngIf="cartInfo?.['cart msg'].msg =='open cart'">
+                <h1> Your last visit was on {{cartInfo?.['cart msg'].Creation |date}}</h1>
+                <h1>You have an open cart for the sum of {{cartInfo?.['cart msg'].amunt |currency:'ILS'}} </h1>
+
+            </div>
+
+
+
+            <div *ngIf="cartInfo?.['cart msg'].msg =='new user'">
+                <h1>Welcome to your first purchase</h1>
+            </div>
+
+            <div *ngIf="cartInfo?.['cart msg'].msg =='old user'">
+                <!-- אם למשתמש אין עגלה פתוחה אבל הוא משתמש ישן -->
+                <h1>Your last purchase was at : {{ this._data.cartInfo?.['cart']?.['Paid_Date'] |date}} </h1>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</div>

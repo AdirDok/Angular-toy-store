@@ -1,0 +1,18 @@
+-------ORDER number 1-------
+         
+ My first artboard ,price:159.9 * 4
+            total: 639.60 
+
+            ===================== 
+ My first bowling ,price:59.9 * 1
+            total: 59.90 
+
+            ===================== 
+ soft cubes ,price:129.9 * 1
+            total: 129.90 
+
+            ===================== 
+ Gener8 Deluxe Tricycle ,price:249.9 * 2
+            total: 499.80 
+
+            =====================total patmant is : 1329.20 

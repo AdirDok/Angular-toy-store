@@ -1,0 +1,23 @@
+<div  *ngIf="_data.myUser.Admin == false" class="main-screen">
+
+    <mat-sidenav-container>
+     
+
+        <mat-sidenav mode="side" [opened]="_mainData.isCartOpen">
+ 
+            <app-cart  ></app-cart>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+
+            <app-list></app-list>
+
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+
+
+
+</div>

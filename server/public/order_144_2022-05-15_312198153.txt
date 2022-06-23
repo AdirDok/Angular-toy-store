@@ -1,0 +1,28 @@
+-------ORDER number 144-------
+         
+ My first artboard ,price:159.9 * 9
+            total: 1439.10 
+
+            ===================== 
+ Musical Walker ,price:199.9 * 3
+            total: 599.70 
+
+            ===================== 
+ My first bowling ,price:59.9 * 6
+            total: 359.40 
+
+            ===================== 
+ Activity Table ,price:199.9 * 2
+            total: 399.80 
+
+            ===================== 
+ Melissa and Doug Ice Cream Shop Chalk Set ,price:99.9 * 1
+            total: 99.90 
+
+            ===================== 
+ 16-Inch Children's Bike -Bastket, Adjustable ,price:399.9 * 1
+            total: 399.90 
+
+            ===================== 
+========
+   total patmant is : 3297.80 

@@ -1,0 +1,39 @@
+.categoris-nav{
+    border: 2px solid black;
+    background-color: #303F9F ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    min-height: 15%; 
+    z-index: 2;
+    overflow-y: auto;
+  
+    
+}
+
+
+.cat{
+    /* background-color: aliceblue; */
+    color: whitesmoke;
+    cursor: pointer;
+    margin-left: 10px;
+    text-decoration: underline;
+    font-weight:300;    
+}
+
+.products-list{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
